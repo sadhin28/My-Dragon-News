@@ -6,7 +6,7 @@ const NewsCard = ({singleNews}) => {
     console.log(singleNews)
     return (
         <div>
-            <div className="bg-white rounded-xl shadow-md p-4 space-y-4">
+                  <div className="bg-white rounded-xl shadow-md p-4 space-y-4">
       {/* Author + Share */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -39,7 +39,7 @@ const NewsCard = ({singleNews}) => {
 
       {/* Details */}
       <p className="text-sm text-gray-700">
-        {singleNews.details.length > 200 ? singleNews.details.slice(0, 200) + "..." : details}
+        {singleNews.details.length > 200 ? singleNews.details.slice(0, 200) + "..." : singleNews.details}
         <span className="text-red-500 font-semibold cursor-pointer ml-1">Read More</span>
       </p>
 
