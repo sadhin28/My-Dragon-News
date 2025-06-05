@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
     return (
@@ -10,7 +11,9 @@ const Home = () => {
                 <LatestNews></LatestNews>
              </section>
            </header>
-           <nav></nav>
+           <section className="w-11/12 mx-auto mt-5">
+             <Navbar></Navbar>
+           </section>
            <main></main>
         </div>
     );
