@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import LeftNavbar from "../components/layout-component/LeftNavbar";
+import RightNavbar from "../components/layout-component/RightNavbar";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -11,10 +13,18 @@ const Home = () => {
                 <LatestNews></LatestNews>
              </section>
            </header>
-           <section className="w-11/12 mx-auto mt-5">
+           <nav className="w-11/12 mx-auto mt-5">
              <Navbar></Navbar>
-           </section>
-           <main></main>
+           </nav>
+           <main className="pt-5 grid md:grid-cols-12 items-center w-11/12 mx-auto">
+            <aside className="left col-span-3">
+                <LeftNavbar></LeftNavbar>
+            </aside>
+            <section className="main col-span-6">Main Content</section>
+            <aside className="right col-span-3">
+                <RightNavbar></RightNavbar>
+            </aside>
+           </main>
         </div>
     );
 };
