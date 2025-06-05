@@ -1,9 +1,10 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const MainContent = () => {
     return (
         <div>
-            <h1>Main Content</h1>
+            <Outlet></Outlet>
         </div>
     );
 };

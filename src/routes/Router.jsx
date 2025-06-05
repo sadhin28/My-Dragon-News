@@ -5,7 +5,13 @@ import Home from '../layouts/Home';
 const router =createBrowserRouter([
     {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        children:[
+            {
+                path:'/category/:id',
+                element:<h2>hi</h2>
+            }
+        ]
     },
     {
         path:'news',
