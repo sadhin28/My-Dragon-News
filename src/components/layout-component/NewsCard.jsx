@@ -34,7 +34,7 @@ const NewsCard = ({singleNews}) => {
       <img
         src={singleNews.image_url}
         alt="News"
-        className="w-full h-48 object-cover rounded"
+        className="w-full h-68 object-cover rounded"
       />
 
       {/* Details */}
