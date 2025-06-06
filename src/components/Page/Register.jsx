@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+    const [showPassword, setShowPassword] = useState(false)
     return (
         <div>
             <div className="min-h-screen flex justify-center items-center">
@@ -32,7 +35,7 @@ const Register = () => {
                                         title="Only letters, numbers or dash"
                                     />
                                 </label>
-                                
+
                             </div>
                             <div>
                                 <label className="input w-90 validator">
@@ -58,7 +61,7 @@ const Register = () => {
                                         title="Only letters, numbers or dash"
                                     />
                                 </label>
-                               
+
                             </div>
                             <div className="">
                                 <label className="input w-90 validator">
@@ -94,9 +97,10 @@ const Register = () => {
                                             <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                         </g>
                                     </svg>
+                                   <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-70">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
                                     <input
                                         className=""
-                                        type="password"
+                                         type={showPassword ? 'text' : 'password'}
                                         required
                                         placeholder="Password"
                                         minlength="8"

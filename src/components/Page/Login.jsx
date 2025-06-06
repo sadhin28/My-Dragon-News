@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+     const [showPassword, setShowPassword] =useState(false)
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
@@ -41,9 +44,10 @@ const Login = () => {
                                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                     </g>
                                 </svg>
+                                 <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-70">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
                                 <input
                                     className=""
-                                    type="password"
+                                     type={showPassword ? 'text' : 'password'}
                                     required
                                     placeholder="Password"
                                     minlength="8"
