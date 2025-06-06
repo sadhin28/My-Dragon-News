@@ -97,7 +97,7 @@ const Register = () => {
                                             <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                         </g>
                                     </svg>
-                                   <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-70">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
+                                   <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-75">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
                                     <input
                                         className=""
                                          type={showPassword ? 'text' : 'password'}
