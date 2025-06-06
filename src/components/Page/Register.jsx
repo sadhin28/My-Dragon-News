@@ -8,7 +8,7 @@ const Register = () => {
         <div>
             <div className="min-h-screen flex justify-center items-center">
                 <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
-                    <h1 className=" mt-5 text-center font-bold md:text-2xl">Create new account</h1>
+                    <h1 className=" mt-5 text-center font-bold md:text-2xl">Create A New Account</h1>
                     <div className="card-body ">
                         <form className="mx-auto flex flex-col gap-4">
                             <div>
@@ -118,7 +118,7 @@ const Register = () => {
                                 <button className="btn btn-outline w-full btn-secondary">Register Now</button>
                             </div>
                             <div className="divider">or</div>
-                            <h1 className="text-center">If you have alrady an acount plase <span className="text-primary hover:underline"><Link to='/auth/login'>Log-In</Link></span> now</h1>
+                            <h1 className="text-center">Allready Have An acount <span className="text-primary hover:underline"><Link to='/auth/login'>Log-In</Link></span> now</h1>
                         </form>
                     </div>
                 </div>
