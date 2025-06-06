@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -6,7 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     //call Authcontext api
-    const {CreateNewUser}=useContext(AuthContext)
+    const {CreateNewUser,setuser,Updateprofiel}=useContext(AuthContext)
     const handelSubmit=(e)=>{
         e.preventDefault();
         //get form data
@@ -19,12 +19,20 @@ const Register = () => {
         
         CreateNewUser(email,password)
         .then(res=>{
-            console.log(res.user)
+            
+            setuser(res.user)
+            //update profile
+            Updateprofiel(name,photo)
+            .then(result=>{
+                console.log(result)
+            })
         })
         .catch(error=>{
             console.log(error.message)
         })
     }
+
+  
     return (
         <div>
             <div className="min-h-screen flex justify-center items-center">
