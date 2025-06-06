@@ -4,13 +4,23 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const handelSubmit=(e)=>{
+        e.preventDefault();
+        //get form data
+        const form = new FormData(e.target)
+        const name = form.get('name')
+        const photo = form.get('photo')
+        const email = form.get('email')
+        const password=form.get('password')
+        console.log(name,email,password,photo)
+    }
     return (
         <div>
             <div className="min-h-screen flex justify-center items-center">
                 <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
                     <h1 className=" mt-5 text-center font-bold md:text-2xl">Create A New Account</h1>
                     <div className="card-body ">
-                        <form className="mx-auto flex flex-col gap-4">
+                        <form onSubmit={handelSubmit} className="mx-auto flex flex-col gap-4">
                             <div>
                                 <label className="input w-90 validator">
                                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -30,10 +40,7 @@ const Register = () => {
                                         name="name"
                                         required
                                         placeholder="Username"
-                                        pattern="[A-Za-z][A-Za-z0-9\-]*"
-                                        minlength="3"
-                                        maxlength="30"
-                                        title="Only letters, numbers or dash"
+                                        
                                     />
                                 </label>
 
@@ -57,10 +64,7 @@ const Register = () => {
                                         required
                                         name="photo"
                                         placeholder="Photo Url"
-                                        pattern="[A-Za-z][A-Za-z0-9\-]*"
-                                        minlength="3"
-                                        maxlength="30"
-                                        title="Only letters, numbers or dash"
+                                        
                                     />
                                 </label>
 
