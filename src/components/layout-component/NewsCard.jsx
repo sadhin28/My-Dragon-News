@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { AiFillStar } from 'react-icons/ai';
 import { FaEye, FaShareAlt } from 'react-icons/fa';
 
