@@ -5,7 +5,7 @@ const Register = () => {
         <div>
             <div className="min-h-screen flex justify-center items-center">
                 <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
-                    <h1 className=" mt-5 text-center font-bold md:text-2xl">Create new acount</h1>
+                    <h1 className=" mt-5 text-center font-bold md:text-2xl">Create new account</h1>
                     <div className="card-body ">
                         <form className="mx-auto flex flex-col gap-4">
                             <div>

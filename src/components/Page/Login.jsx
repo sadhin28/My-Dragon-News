@@ -60,7 +60,7 @@ const Login = () => {
                             <button className="btn btn-outline w-full btn-secondary">LogIn</button>
                         </div>
                         <div className="divider">or</div>
-                        <h1 className="text-center">If you have no acount plase <span className="text-primary hover:underline"><Link to='/auth/register'>Register</Link></span> now</h1>
+                        <h1 className="text-center">Dont Have An Account <span className="text-primary hover:underline"><Link to='/auth/register'>Register</Link></span> now</h1>
                     </form>
                 </div>
             </div>
