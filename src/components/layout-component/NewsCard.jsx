@@ -3,7 +3,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { FaEye, FaShareAlt } from 'react-icons/fa';
 
 const NewsCard = ({singleNews}) => {
-    console.log(singleNews)
+
     return (
         <div>
                   <div className="bg-white rounded-xl shadow-md p-4 space-y-4">
