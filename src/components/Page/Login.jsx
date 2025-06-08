@@ -6,7 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
      const [showPassword, setShowPassword] =useState(false)
-     const {login,user} = useContext(AuthContext)
+     const {login,setuser} = useContext(AuthContext)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -16,12 +16,10 @@ const Login = () => {
         login(email,password)
         .then(res=>{
             console.log('Login Success Full')
-            if(res){
-             
-            }
+            setuser(res.user)
         })
         .catch(error=>{
-            console.log(error.message)
+            alert(error.message)
         })
          
      }
