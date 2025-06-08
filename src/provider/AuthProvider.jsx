@@ -52,7 +52,8 @@ const AuthProvider = ({children}) => {
         CreateNewUser,
         Updateprofiel,
         Logout,
-        login
+        login,
+        
     }
     
     return (
