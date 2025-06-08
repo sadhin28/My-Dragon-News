@@ -26,7 +26,8 @@ const Login = () => {
             
               </div>
                }
-                navigate("/")
+               navigate("/")
+            
                
             
         })

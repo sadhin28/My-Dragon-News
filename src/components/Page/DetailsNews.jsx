@@ -13,8 +13,8 @@ const DetailsNews = () => {
             <header>
                 <Header></Header>
             </header>
-            <div className='pt-5 gap-10 grid md:grid-cols-12  w-11/12 mx-auto'>
-                <section className='col-span-8 flex flex-col '>
+            <div className='pt-5 gap-10 grid md:grid-cols-12   w-11/12 mx-auto'>
+                <section className='md:col-span-8 flex flex-col '>
                     <h1 className='mb-3 text-xl font-bold'>Dragon News</h1>
                     <div className='shadow-2xl p-5 rounded-2xl flex flex-col '>
                         <img className='rounded-2xl' src={details.data[0].image_url} alt="" />
@@ -26,7 +26,7 @@ const DetailsNews = () => {
                         </div>
                     </div>
                 </section>
-                <aside className='col-span-3'>
+                <aside className='md:col-span-3'>
                     <RightNavbar></RightNavbar>
                 </aside>
             </div>

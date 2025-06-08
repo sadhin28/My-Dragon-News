@@ -17,14 +17,14 @@ const Home = () => {
            <nav className="w-11/12 mx-auto mt-5">
              <Navbar></Navbar>
            </nav>
-           <main className="pt-5 gap-10 grid md:grid-cols-12  w-11/12 mx-auto">
-            <aside className="left col-span-3">
+           <main className="pt-5 gap-10 grid  md:grid-cols-12  w-11/12 mx-auto">
+            <aside className="left md:col-span-3">
                 <LeftNavbar></LeftNavbar>
             </aside>
-            <section className="main col-span-6">
+            <section className="main md:col-span-6">
                 <MainContent></MainContent>
             </section>
-            <aside className="right col-span-3">
+            <aside className="right md:col-span-3">
                 <RightNavbar></RightNavbar>
             </aside>
            </main>
