@@ -10,7 +10,7 @@ const PrivateRoute = ({children}) => {
      if(loading){
        <Loading></Loading>
     }
-    if(user){
+    if(user && user?.email){
         return children;
 
    }else{

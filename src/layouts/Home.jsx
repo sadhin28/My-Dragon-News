@@ -8,17 +8,17 @@ import Navbar from "../components/Navbar";
 const Home = () => {
     return (
         <div>
-           <header>
+           <header className="sticky top-0 z-30 bg-white">
              <Header></Header>
              <section className="mt-5 w-11/12 mx-auto">
                 <LatestNews></LatestNews>
              </section>
            </header>
-           <nav className="w-11/12 mx-auto mt-5">
+           <nav className="sticky top-49  p-2 z-30 bg-white w-11/12 mx-auto mt-5">
              <Navbar></Navbar>
            </nav>
            <main className="pt-5 gap-10 grid  md:grid-cols-12  w-11/12 mx-auto">
-            <aside className="left md:col-span-3">
+            <aside className=" md:col-span-3">
                 <LeftNavbar></LeftNavbar>
             </aside>
             <section className="main md:col-span-6">

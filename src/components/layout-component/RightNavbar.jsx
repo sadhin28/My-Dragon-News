@@ -3,7 +3,7 @@ import SocialLogin from "../SocialLogin";
 
 const RightNavbar = () => {
     return (
-        <div className="grid grid-cols-2 items-center gap-[50px] md:gap-0 md:grid-cols-1">
+        <div className=" sticky md:top-70 left grid grid-cols-2 items-center gap-[50px] md:gap-0 md:grid-cols-1">
             <SocialLogin></SocialLogin>
             <FindUs></FindUs>
         </div>
