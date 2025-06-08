@@ -1,7 +1,7 @@
 import {  useContext } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, Navigate, useNavigate,} from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate,} from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -9,6 +9,8 @@ const Login = () => {
     const navigate = useNavigate()
      const [showPassword, setShowPassword] =useState(false)
      const {login,setuser,loading} = useContext(AuthContext)
+     const location = useLocation()
+     console.log(location)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -26,7 +28,7 @@ const Login = () => {
             
               </div>
                }
-               navigate("/")
+               navigate( location?.state ? location.state:"/")
             
                
             

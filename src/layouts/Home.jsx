@@ -17,7 +17,7 @@ const Home = () => {
            <nav className="sticky top-49  p-2 z-30 bg-white w-11/12 mx-auto mt-5">
              <Navbar></Navbar>
            </nav>
-           <main className="pt-5 gap-10 grid  md:grid-cols-12  w-11/12 mx-auto">
+           <main className="pt-5 mb-10 gap-10 grid  md:grid-cols-12  w-11/12 mx-auto">
             <aside className=" md:col-span-3">
                 <LeftNavbar></LeftNavbar>
             </aside>

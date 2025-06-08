@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from '../Header';
 import RightNavbar from '../layout-component/RightNavbar';
@@ -10,10 +10,10 @@ const DetailsNews = () => {
     return (
 
         <div className=''>
-            <header>
+            <header className='sticky top-0 bg-white'>
                 <Header></Header>
             </header>
-            <div className='pt-5 gap-10 grid md:grid-cols-12   w-11/12 mx-auto'>
+            <div className='pt-5 mb-10  gap-10 grid md:grid-cols-12 items-start  w-11/12 mx-auto'>
                 <section className='md:col-span-8 flex flex-col '>
                     <h1 className='mb-3 text-xl font-bold'>Dragon News</h1>
                     <div className='shadow-2xl p-5 rounded-2xl flex flex-col '>
@@ -26,7 +26,7 @@ const DetailsNews = () => {
                         </div>
                     </div>
                 </section>
-                <aside className='md:col-span-3'>
+                <aside className='md:col-span-3 md:sticky top-40'>
                     <RightNavbar></RightNavbar>
                 </aside>
             </div>
