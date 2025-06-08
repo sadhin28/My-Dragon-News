@@ -1,16 +1,19 @@
-import {  useContext } from "react";
+import {  useContext, useRef } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, Navigate, useLocation, useNavigate,} from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { getAuth } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 const Login = () => {
     const navigate = useNavigate()
      const [showPassword, setShowPassword] =useState(false)
-     const {login,setuser,loading} = useContext(AuthContext)
+     const {login,setuser,loading,forgotPassword} = useContext(AuthContext)
      const location = useLocation()
-     console.log(location)
+    const emailref = useRef();
+    const auth=getAuth(app)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -39,7 +42,22 @@ const Login = () => {
         
         
      }
-     
+     //forgot password
+    const handelForgatePassword = () => {
+      const email =   document.getElementsByName('email')[0].value
+      if(!email){
+        toast.error("Please Provide A valid Email Address")
+      }
+      else{
+        forgotPassword(auth,email)
+        .then(res=>{
+            toast.success('Forgot Password,Please Check email')
+        })
+        .catch(error=>{
+            toast.error(error.message)
+        })
+      }
+    }
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
@@ -97,6 +115,9 @@ const Login = () => {
                                 <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
                             </p>
                         </div>
+                        
+                         <div><a onClick={handelForgatePassword} className="link link-hover">Forgot password?</a></div>
+                        
                         <div>
                            <button className="btn btn-outline w-full btn-secondary">LogIn</button>
                         </div>
