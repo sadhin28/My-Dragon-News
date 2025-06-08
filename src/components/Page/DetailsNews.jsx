@@ -6,7 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const DetailsNews = () => {
     const details = useLoaderData();
-    console.log(details)
+   
     return (
 
         <div className=''>

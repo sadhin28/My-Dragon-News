@@ -22,7 +22,7 @@ const Login = () => {
         //login
         login(email,password)
         .then(res=>{
-            console.log('Login Success Full')
+          
             setuser(res.user)
             toast.success('Log-In Successfull')
                if(loading){
