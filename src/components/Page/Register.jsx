@@ -2,6 +2,7 @@ import { useContext,  useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -24,11 +25,11 @@ const Register = () => {
             //update profile
             Updateprofiel(name,photo)
             .then(result=>{
-                console.log(result)
+                toast.success('Register Successfull')
             })
         })
         .catch(error=>{
-            console.log(error.message)
+            toast.error(error.message)
         })
     }
 

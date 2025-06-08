@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { use, useContext } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link} from "react-router-dom";
+import { Link, Navigate, useNavigate,} from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
+    const navigate = useNavigate()
      const [showPassword, setShowPassword] =useState(false)
-     const {login,setuser} = useContext(AuthContext)
+     const {login,setuser,user} = useContext(AuthContext)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -17,12 +19,19 @@ const Login = () => {
         .then(res=>{
             console.log('Login Success Full')
             setuser(res.user)
+            toast.success('Log-In Successfull')
+            
+                navigate("/")
+               
+            
         })
         .catch(error=>{
-            alert(error.message)
+             toast.error(error.message)
         })
-         
+        
+        
      }
+     
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
@@ -81,7 +90,7 @@ const Login = () => {
                             </p>
                         </div>
                         <div>
-                            <button className="btn btn-outline w-full btn-secondary">LogIn</button>
+                           <button className="btn btn-outline w-full btn-secondary">LogIn</button>
                         </div>
                         <div className="divider">or</div>
                         <h1 className="text-center">Dont Have An Account <span className="text-primary hover:underline"><Link to='/auth/register'>Register</Link></span> now</h1>
