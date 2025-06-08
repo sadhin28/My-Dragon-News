@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
      const [showPassword, setShowPassword] =useState(false)
-     const {login} = useContext(AuthContext)
+     const {login,user} = useContext(AuthContext)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -16,7 +16,9 @@ const Login = () => {
         login(email,password)
         .then(res=>{
             console.log('Login Success Full')
-            
+            if(res){
+             
+            }
         })
         .catch(error=>{
             console.log(error.message)
