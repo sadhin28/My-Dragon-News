@@ -1,15 +1,34 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
      const [showPassword, setShowPassword] =useState(false)
+     const {login} = useContext(AuthContext)
+     const handelLogin=(e)=>{
+        e.preventDefault();
+        const form = new FormData(e.target)
+        const email=form.get('email')
+        const password = form.get('password')
+        //login
+        login(email,password)
+        .then(res=>{
+            console.log('Login Success Full')
+            
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
+         
+     }
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="  card bg-base-100  w-full max-w-lg shrink-0 shadow-2xl">
                 <h1 className=" mt-5 text-center font-bold md:text-2xl">Log-in Your Account</h1>
                 <div className="card-body ">
-                    <form className="flex py-10 flex-col gap-5  mx-auto">
+                    <form onSubmit={handelLogin} className="flex py-10 flex-col gap-5  mx-auto">
                         <div className="">
                             <label className="input w-90 validator">
                                 <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -24,7 +43,7 @@ const Login = () => {
                                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                     </g>
                                 </svg>
-                                <input type="email" placeholder="mail@site.com" required />
+                                <input name="email" type="email" placeholder="mail@site.com" required />
                             </label>
                             <div className="validator-hint hidden">Enter valid email address</div>
                         </div>
@@ -47,6 +66,7 @@ const Login = () => {
                                  <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-75">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
                                 <input
                                     className=""
+                                    name="password"
                                      type={showPassword ? 'text' : 'password'}
                                     required
                                     placeholder="Password"
