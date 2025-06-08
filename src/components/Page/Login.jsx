@@ -1,4 +1,4 @@
-import { use, useContext } from "react";
+import {  useContext } from "react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, Navigate, useNavigate,} from "react-router-dom";
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const Login = () => {
     const navigate = useNavigate()
      const [showPassword, setShowPassword] =useState(false)
-     const {login,setuser,user} = useContext(AuthContext)
+     const {login,setuser,loading} = useContext(AuthContext)
      const handelLogin=(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
@@ -20,7 +20,12 @@ const Login = () => {
             console.log('Login Success Full')
             setuser(res.user)
             toast.success('Log-In Successfull')
+               if(loading){
+             return <div className="grid relative top-40 justify-center">
+             <span className="loading  loading-infinity loading-xl"></span>
             
+              </div>
+               }
                 navigate("/")
                
             
