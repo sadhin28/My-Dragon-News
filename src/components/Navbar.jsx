@@ -22,7 +22,7 @@ const Navbar = () => {
                         src={userLogo} alt="" />
                 }
                 {
-                    user && user?.email ? <Link to="/" onClick={Logout} className="btn btn-neutral rounded-none">Log-Out</Link> : <Link to='auth/login' className="btn btn-neutral text-xs md:text-xl rounded-none">Log-In</Link>
+                    user && user?.email ? <Link to="/" onClick={Logout} className="btn btn-neutral text-xs md:text-xl rounded-none">Log-Out</Link> : <Link to='auth/login' className="btn btn-neutral text-xs md:text-xl rounded-none">Log-In</Link>
                 }
             </div>
         </div>
