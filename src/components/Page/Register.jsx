@@ -42,7 +42,7 @@ const Register = () => {
                     <div className="card-body ">
                         <form onSubmit={handelSubmit} className="mx-auto flex flex-col gap-4">
                             <div>
-                                <label className="input w-90 validator">
+                                <label className="input  validator">
                                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g
                                             strokeLinejoin="round"
@@ -66,7 +66,7 @@ const Register = () => {
 
                             </div>
                             <div>
-                                <label className="input w-90 validator">
+                                <label className="input  validator">
                                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g
                                             strokeLinejoin="round"
@@ -90,7 +90,7 @@ const Register = () => {
 
                             </div>
                             <div className="">
-                                <label className="input w-90 validator">
+                                <label className="input  validator">
                                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g
                                             strokeLinejoin="round"
@@ -123,7 +123,7 @@ const Register = () => {
                                             <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                         </g>
                                     </svg>
-                                   <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-75">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
+                                   <p  onClick={() => setShowPassword(!showPassword)} className="relative  cursor-pointer left-47">{showPassword ? <FaEyeSlash /> : <FaEye />}</p>
                                     <input
                                         name="password"
                                          type={showPassword ? 'text' : 'password'}
