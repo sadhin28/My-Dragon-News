@@ -11,8 +11,8 @@ const CategoryNews = () => {
     return (
         <div>
 
-            <h1 className="font-bold">Dragon News Home</h1>
-            <h1 className="font-bold text-xs">({news.length}) News Found InThis Category</h1>
+            <h1 className="font-bold">বাংলাদেশ জাতীয়তাবাদী ছাত্রদল</h1>
+            <h1 className="font-bold text-xs">({news.length}) News Found Here</h1>
             {
                 loading && <div className="grid relative top-40 justify-center">
             <span className="loading  loading-infinity loading-xl"></span>
