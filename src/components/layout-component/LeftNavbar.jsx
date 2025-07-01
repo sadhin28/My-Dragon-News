@@ -12,7 +12,7 @@ const LeftNavbar = () => {
         })
     },[])
     return (
-        <div className="grid gap-3  sticky md:top-70 left">
+        <div className="grid gap-3  sticky md:top-90 left">
             <h1 className="font-bold">All Category({categories.length})</h1>
             <div className="flex flex-col gap-2 text-[#9F9F9F]">
                 {
