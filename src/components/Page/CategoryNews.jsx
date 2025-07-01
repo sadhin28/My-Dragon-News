@@ -5,7 +5,8 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const CategoryNews = () => {
-    const {data:news} = useLoaderData()
+    const news = useLoaderData()
+  
     const {loading}=useContext(AuthContext)
     return (
         <div>
@@ -19,10 +20,10 @@ const CategoryNews = () => {
         </div>
             }
             <div className="flex flex-col gap-5">
-                
                 {
-                    news.map(singleNews=><NewsCard key={singleNews._id} singleNews={singleNews}></NewsCard>)
+                    news.map(posts=><NewsCard posts={posts}></NewsCard>)
                 }
+                
             </div>
         </div>
     );

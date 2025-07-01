@@ -21,14 +21,14 @@ const router =createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<CategoryNews></CategoryNews>,
-                loader:({params})=>fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)
+                loader:()=>fetch('http://localhost:5000/posts')
             }
         ]
     },
     {
             path:'/news/:id',
             element:<PrivateRoute><DetailsNews></DetailsNews></PrivateRoute>,
-            loader:({params})=>fetch(` https://openapi.programming-hero.com/api/news/${params.id}`)
+            loader:({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
     },
 
     {
