@@ -1,14 +1,44 @@
+
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const AddPosts = () => {
-     const { register, handleSubmit, formState: { errors },} = useForm();
-     const navigate = useNavigate()
+    const navigate=useNavigate()
+    const { register, handleSubmit, formState: { errors },} = useForm();
+
     const onSubmit = async (data) => {
        
-      console.log(data)
+       fetch('http://localhost:5000/posts',{
+        method:"POST",
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(data)
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        console.log(data)
+        
+           Swal.fire({
+             title:'Success',
+             text:"Add Coffee Item Successfully",
+             icon:'success',
+             confirmButtonText:'Cool'
+           })
+           navigate('/')
+           
+        
+       })
+       .catch(errors=>{
+          Swal.fire({
+             title:'Error',
+             text:`${errors.message}`,
+             icon:'error',
+             confirmButtonText:'Cool'
+           })
+       })
       
     };
    const post = 

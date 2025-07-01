@@ -18,10 +18,10 @@ const Home = () => {
              <Navbar></Navbar>
            </nav>
            <main className="pt-5 mb-10 gap-10 grid  md:grid-cols-12  w-11/12 mx-auto">
-            <aside className=" md:col-span-3">
+            {/* <aside className=" md:col-span-3">
                 <LeftNavbar></LeftNavbar>
-            </aside>
-            <section className="main md:col-span-6">
+            </aside> */}
+            <section className="main md:col-span-9">
                 <MainContent></MainContent>
             </section>
             <aside className="right md:col-span-3">
