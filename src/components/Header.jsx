@@ -9,14 +9,19 @@ const Header = () => {
         <div className='header '>
             <div className='flex w-11/12 mx-auto  justify-between'>
                 <div><img className='py-3 h-[100px] w-[100px]' src={logo} alt="" /></div>
-                <div><img className='py-3 h-[100px] w-[120px]' src={flag} alt="" /></div>
+                
+                    <div className='p-5 text-center'>
+                        <p>বিসমিল্লাহির রাহমানির রাহিম</p>
+                        <p className=' text-gray-400 font-Poppins'>শিক্ষা ঐক্য প্রগতি </p>
+                    </div>
+                
                 <div><img className='py-3 h-[100px] w-[100px]' src={flmilyimg} alt="" /></div>
 
             </div>
             <div className='text-center mx-10'>
                 <p className=' text-gray-400 font-Poppins'>বাংলাদেশ জাতীয়তাবাদী ছাত্রদল ।</p>
-                <p className=' text-gray-400 font-Poppins'>সিটি বিশ্ববিদ্যালয়।</p>
-                <p className=' text-gray-400 font-Poppins'>শিক্ষা ঐক্য প্রগতি ছাত্রদলের মূল নীতি ।</p>
+                <p className=' text-gray-400 font-Poppins'>সিটি বিশ্ববিদ্যালয় শাখা।</p>
+
                 <p>{moment().format("ddd, MMMM Do YYYY")}</p>
             </div>
         </div>
