@@ -7,6 +7,7 @@ import Login from '../components/Page/Login';
 import Register from '../components/Page/Register';
 import DetailsNews from '../components/Page/DetailsNews';
 import PrivateRoute from './PrivateRoute';
+import AddPosts from '../components/Page/AddPosts';
 
 const router =createBrowserRouter([
     {
@@ -46,8 +47,13 @@ const router =createBrowserRouter([
                 path:'/auth/register',
                 element:<Register></Register>
             }
+            
         ]
     },
+    {
+                path:'/AddPost',
+                element:<PrivateRoute><AddPosts></AddPosts></PrivateRoute>
+   },
     {
         path:'*',
         element:<h1>Error</h1>
