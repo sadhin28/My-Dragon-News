@@ -13,7 +13,7 @@ const NewsCard = ({posts,handelDelete}) => {
           
           url:`http://localhost:5173/category/${id}`,
         });
-        console.log('Content shared successfully');
+       
       } catch (error) {
         toast.error('Error sharing:', error);
       }
@@ -22,6 +22,7 @@ const NewsCard = ({posts,handelDelete}) => {
       // Fallback for browsers that don't support the API (e.g., offer copy-to-clipboard)
     }
   };
+
     return (
         <div>
                   <div className="bg-white rounded-xl shadow-md p-4 space-y-4">
@@ -29,7 +30,7 @@ const NewsCard = ({posts,handelDelete}) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={posts.image_url}
+            src={(posts.image_url[0].name)}
             
             className="w-10 h-10 rounded-full object-cover"
           />
