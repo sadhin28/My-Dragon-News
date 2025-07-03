@@ -1,6 +1,7 @@
 
 import { AiFillStar } from 'react-icons/ai';
-import {  FaShareAlt } from 'react-icons/fa';
+import {  FaPen, FaPooStorm, FaShareAlt } from 'react-icons/fa';
+import { FaDisplay, FaSignsPost } from 'react-icons/fa6';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -66,7 +67,7 @@ const NewsCard = ({posts,handelDelete}) => {
       {/* Footer: Rating and Views */}
       <div className="flex items-center justify-between pt-2 border-t">
         <div className="flex items-center gap-1 text-orange-400 text-sm">
-          <AiFillStar />
+          <FaPen />{`Published date : ${posts.published_date}`}
           {/* <span>{singleNews.rating.number}</span> */}
         </div>
          <div onClick={() => handelDelete(posts._id)} className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>

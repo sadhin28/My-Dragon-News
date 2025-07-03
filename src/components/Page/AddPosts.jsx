@@ -59,7 +59,7 @@ const AddPosts = () => {
                         {[
                             { name: 'name', label: 'Your Name', placeholder: 'Enter Your name' },
                             { name: 'title', label: 'Post Title', placeholder: 'Enter Post Title' },
-                            { name: 'published_date', label: 'Published date', placeholder: 'Enter published_date' },
+                           
                            
 
 
@@ -75,7 +75,18 @@ const AddPosts = () => {
                             </div>
                         ))}
                     </div>
+                          <div>
+                                <label className="block mb-1 font-medium">Published date</label>
+                                <input
+                                   {...register('published_date', {
+                                required: 'Photo URL is required',
 
+                            })}
+                                    placeholder='Published date'
+                                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
+                                />
+                                {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}
+                        </div>
                     <div>
                         <label className="block mb-1 font-medium">Thumbnail url</label>
                         <input
