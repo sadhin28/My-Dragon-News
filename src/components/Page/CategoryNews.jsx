@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router-dom";
 import NewsCard from "../layout-component/NewsCard";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const CategoryNews = () => {
@@ -71,7 +70,7 @@ const CategoryNews = () => {
             }
             <div className="flex flex-col gap-5">
                 {
-                    newnews.map(posts=><NewsCard handelDelete={handelDelete} posts={posts}></NewsCard>)
+                    newnews.map(posts=><NewsCard key={posts._id} handelDelete={handelDelete} posts={posts}></NewsCard>)
                 }
                 
             </div>

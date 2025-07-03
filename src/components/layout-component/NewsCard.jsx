@@ -30,7 +30,7 @@ const NewsCard = ({posts,handelDelete}) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={(posts.image_url[0].name)}
+            src={(posts.image_url)}
             
             className="w-10 h-10 rounded-full object-cover"
           />

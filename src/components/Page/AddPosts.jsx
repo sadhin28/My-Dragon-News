@@ -102,8 +102,11 @@ const AddPosts = () => {
                     </div>
                     <div>
                         <textarea
-                            onSubmit={handleSubmit(onSubmit)}
-                            name="details"
+                            onSubmit={handleSubmit}
+                             {...register('details', {
+                                required: 'dataisl',
+
+                            })}
                             placeholder="Details"
                             className="w-full mb-4 p-2 border rounded"
                             rows="4"
