@@ -1,10 +1,11 @@
 
 import { AiFillStar } from 'react-icons/ai';
-import { FaEye, FaShareAlt } from 'react-icons/fa';
+import {  FaShareAlt } from 'react-icons/fa';
+import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const NewsCard = ({posts}) => {
+const NewsCard = ({posts,handelDelete}) => {
        const handleShare = async (id) => {
     if (navigator.share) {
       try {
@@ -67,10 +68,7 @@ const NewsCard = ({posts}) => {
           <AiFillStar />
           {/* <span>{singleNews.rating.number}</span> */}
         </div>
-        <div className="flex items-center gap-1 text-gray-600 text-sm">
-          <FaEye />
-          {/* <span>{singleNews.total_view}</span> */}
-        </div>
+         <div onClick={() => handelDelete(posts._id)} className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>
       </div>
     </div>
         </div>
