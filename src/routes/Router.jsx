@@ -8,6 +8,8 @@ import Register from '../components/Page/Register';
 import DetailsNews from '../components/Page/DetailsNews';
 import PrivateRoute from './PrivateRoute';
 import AddPosts from '../components/Page/AddPosts';
+import Members from '../components/Page/Members';
+import About from '../components/Page/About';
 
 const router =createBrowserRouter([
     {
@@ -53,6 +55,14 @@ const router =createBrowserRouter([
     {
                 path:'/AddPost',
                 element:<PrivateRoute><AddPosts></AddPosts></PrivateRoute>
+   },
+   {
+        path:'/members',
+        element:<Members></Members>
+   },
+   {
+        path:'/about',
+        element:<About></About>
    },
     {
         path:'*',
