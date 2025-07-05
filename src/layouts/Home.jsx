@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import LeftNavbar from "../components/layout-component/LeftNavbar";
@@ -29,6 +30,7 @@ const Home = () => {
                 <RightNavbar></RightNavbar>
             </aside>
            </main>
+           <Footer></Footer>
         </div>
     );
 };
