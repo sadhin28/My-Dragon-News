@@ -60,7 +60,7 @@ const router =createBrowserRouter([
    {
         path:'/members',
         element:<Members></Members>,
-        loader:()=>fetch('http://localhost:5000/members')
+        loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
    },
    {
         path:'/about',
@@ -68,7 +68,7 @@ const router =createBrowserRouter([
    },
    {
        path:'/AddMember',
-       element:<Addmembers></Addmembers>
+       element:<PrivateRoute><Addmembers></Addmembers></PrivateRoute>
    },
     {
         path:'*',

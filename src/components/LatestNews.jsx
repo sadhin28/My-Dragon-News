@@ -17,7 +17,7 @@ const LatestNews = () => {
                 
                
             </Marquee>
-             <Link to='/AddMember'> <p className="w-[100px] btn h-[40px] flex text-sm text-white justify-center items-center bg-[#D72050]">Add MEmbers</p></Link>
+             <Link to='/AddMember'> <p className="w-[100px] btn h-[40px] p-1 flex text-sm text-white justify-center items-center bg-[#D72050]">Add MEmbers</p></Link>
         </div>
     );
 };

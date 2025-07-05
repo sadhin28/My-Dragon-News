@@ -5,12 +5,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const Addmembers = () => {
-      const navigate = useNavigate()
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const onSubmit = async (data) => {
-      
-        fetch('http://localhost:5000/members', {
+
+        fetch('https://my-dragonnews-server.onrender.com/members', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -19,7 +19,7 @@ const Addmembers = () => {
         })
             .then(res => res.json())
             .then(data => {
-               
+
 
                 Swal.fire({
                     title: 'Success',
@@ -45,7 +45,7 @@ const Addmembers = () => {
 
 
     return (
-          <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
+        <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
             <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-10 relative">
                 <a href="/" className="absolute top-4 left-4 text-lg font-semibold text-gray-700 hover:underline">
                     ← Back to home
@@ -59,8 +59,8 @@ const Addmembers = () => {
                         {[
                             { name: 'name', label: 'Member Name', placeholder: 'Enter Member name' },
                             { name: 'Designation', label: 'Designation', placeholder: 'Enter Member Designation' },
-                           
-                           
+
+
 
 
                         ].map(({ name, label, placeholder }) => (
@@ -75,19 +75,19 @@ const Addmembers = () => {
                             </div>
                         ))}
                     </div>
-                          <div>
-                                <label className="block mb-1 font-medium">Membership Date</label>
-                                <input
-                                   {...register('Membership_date', {
-                                
+                    <div>
+                        <label className="block mb-1 font-medium">Membership Date</label>
+                        <input
+                            {...register('Membership_date', {
+
 
                             })}
-                                    placeholder='Membership date'
-                                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
-                                />
-                                {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}
-                        </div>
-                    
+                            placeholder='Membership date'
+                            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
+                        />
+                        {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}
+                    </div>
+
                     <div>
                         <label className="block mb-1 font-medium">Image url</label>
                         <input
