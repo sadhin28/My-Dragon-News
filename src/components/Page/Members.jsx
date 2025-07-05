@@ -1,9 +1,18 @@
-import React from 'react';
+import axios from 'axios';
+import React, { use } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Profilecard from './Profilecard';
 
 const Members = () => {
+    
+    const members = useLoaderData()
     return (
         <div>
-            <h1>Members</h1>
+          {
+            members.map(user=><Profilecard key={user._id} user={user}></Profilecard>)
+            
+         }
+        
         </div>
     );
 };

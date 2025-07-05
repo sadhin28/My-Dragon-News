@@ -10,6 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import AddPosts from '../components/Page/AddPosts';
 import Members from '../components/Page/Members';
 import About from '../components/Page/About';
+import Addmembers from '../components/Page/Addmembers';
 
 const router =createBrowserRouter([
     {
@@ -58,11 +59,16 @@ const router =createBrowserRouter([
    },
    {
         path:'/members',
-        element:<Members></Members>
+        element:<Members></Members>,
+        loader:()=>fetch('http://localhost:5000/members')
    },
    {
         path:'/about',
         element:<About></About>
+   },
+   {
+       path:'/AddMember',
+       element:<Addmembers></Addmembers>
    },
     {
         path:'*',

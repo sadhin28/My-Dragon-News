@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import axios from "axios";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -11,6 +12,7 @@ const firebaseConfig = {
   measurementId:import.meta.env.VITE_measurementId
 };
 
+//fetchdata
 
 
 // Initialize Firebase
