@@ -7,5 +7,6 @@
 
 }
 .active{
-    background-color: #e7e7e7;
+    text-decoration: underline;
+    color: blue;
 }

@@ -12,67 +12,70 @@ import Members from '../components/Page/Members';
 import About from '../components/Page/About';
 import Addmembers from '../components/Page/Addmembers';
 
-const router =createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Home></Home>,
-        children:[ 
+        path: '/',
+        element: <Home></Home>,
+        children: [
             {
-                path:'',
-                element:<Navigate to={"/category/01"}></Navigate>
+                path: '',
+                element: <Navigate to={"/category/01"}></Navigate>
             },
             {
-                path:'/category/:id',
-                element:<CategoryNews></CategoryNews>,
-                loader:()=>fetch('https://my-dragonnews-server.onrender.com/posts')
-            }
+                path: '/category/:id',
+                element: <CategoryNews></CategoryNews>,
+                loader: () => fetch('https://my-dragonnews-server.onrender.com/posts')
+            },
         ]
     },
     {
-            path:'/news/:id',
-            element:<PrivateRoute><DetailsNews></DetailsNews></PrivateRoute>,
-            loader:({params})=>fetch(`https://my-dragonnews-server.onrender.com/posts/${params.id}`)
+        path: '/news/:id',
+        element: <PrivateRoute><DetailsNews></DetailsNews></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://my-dragonnews-server.onrender.com/posts/${params.id}`)
     },
 
     {
-        path:'news',
-        element:<h1>News Layout</h1>
+        path: 'news',
+        element: <h1>News Layout</h1>
     },
     {
-        path:'auth',
-        element:<AuthLayout></AuthLayout>,
-        children:[
+        path: 'auth',
+        element: <AuthLayout></AuthLayout>,
+        children: [
             {
-                path:'/auth/login',
-                element:<Login></Login>
+                path: '/auth/login',
+                element: <Login></Login>
             },
             {
-                path:'/auth/register',
-                element:<Register></Register>
-            }
+                path: '/auth/register',
+                element: <Register></Register>
+            },
             
+
+
         ]
     },
-    {
-                path:'/AddPost',
-                element:<PrivateRoute><AddPosts></AddPosts></PrivateRoute>
-   },
-   {
+     {
         path:'/members',
         element:<Members></Members>,
         loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
    },
-   {
-        path:'/about',
-        element:<About></About>
-   },
-   {
-       path:'/AddMember',
-       element:<PrivateRoute><Addmembers></Addmembers></PrivateRoute>
-   },
     {
-        path:'*',
-        element:<h1>Error</h1>
+        path: '/AddPost',
+        element: <PrivateRoute><AddPosts></AddPosts></PrivateRoute>
+    },
+
+    {
+        path: '/about',
+        element: <About></About>
+    },
+    {
+        path: '/AddMember',
+        element: <PrivateRoute><Addmembers></Addmembers></PrivateRoute>
+    },
+    {
+        path: '*',
+        element: <h1>Error</h1>
     }
 ])
 

@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Profilecard from './Profilecard';
 import Navbar from '../Navbar';
 import Swal from 'sweetalert2';
+import Footer from '../Footer';
 
 const Members = () => {
       const newmembers = useLoaderData()
@@ -64,13 +65,14 @@ const Members = () => {
         <div>
             <Navbar></Navbar>
               <Link to='/AddMember' className='btn btn-circle sticky z-30 ml-10 top-10 mt-10  bg-amber-400 text-3xl hover:text-white hover:bg-amber-600 '>+</Link>
-            <div className='mt-20   grid gap-10 w-11/12 mx-auto md:grid-cols-3 lg:grid-cols-4'>
+            <div className='mt-20 mb-20  grid gap-10 w-11/12 mx-auto md:grid-cols-3 lg:grid-cols-4'>
           {
             members.map(user=><Profilecard handeldelate={handeldelate} key={user._id} user={user}></Profilecard>)
             
          }
         
         </div>
+        <Footer></Footer>
         </div>
     );
 };
