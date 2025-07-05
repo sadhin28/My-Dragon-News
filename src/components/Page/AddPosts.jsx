@@ -10,7 +10,7 @@ const AddPosts = () => {
 
     const onSubmit = async (data) => {
       
-        fetch('http://localhost:5000/posts', {
+        fetch('https://my-dragonnews-server.onrender.com/posts', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

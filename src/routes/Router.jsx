@@ -21,14 +21,14 @@ const router =createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<CategoryNews></CategoryNews>,
-                loader:()=>fetch('http://localhost:5000/posts')
+                loader:()=>fetch('https://my-dragonnews-server.onrender.com/posts')
             }
         ]
     },
     {
             path:'/news/:id',
             element:<PrivateRoute><DetailsNews></DetailsNews></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
+            loader:({params})=>fetch(`https://my-dragonnews-server.onrender.com/posts/${params.id}`)
     },
 
     {

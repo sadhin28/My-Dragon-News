@@ -27,7 +27,7 @@ const CategoryNews = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/posts/${_id}`,{
+                fetch(`https://my-dragonnews-server.onrender.com/posts/${_id}`,{
                     method:'DELETE'
                 })
                     .then(res => res.json())
