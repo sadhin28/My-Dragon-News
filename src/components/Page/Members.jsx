@@ -31,7 +31,7 @@ const Members = () => {
             }).then((result) => {
                 if (result.isConfirmed) {
     
-                    fetch(`https://my-dragonnews-server.onrender.com/members/${_id}`,{
+                    fetch(`http://localhost:5000/member/${_id}`,{
                         method:'DELETE'
                     })
                         .then(res => res.json())
@@ -47,6 +47,7 @@ const Members = () => {
                                 });
                                 const remaining = members.filter(cof=> cof._id !== _id);
                                 setmembers(remaining)
+                               
                                 }
                         })
                 } else if (

@@ -11,6 +11,7 @@ import AddPosts from '../components/Page/AddPosts';
 import Members from '../components/Page/Members';
 import About from '../components/Page/About';
 import Addmembers from '../components/Page/Addmembers';
+import NewMenbers from '../components/Page/NewMenbers';
 
 const router = createBrowserRouter([
     {
@@ -58,7 +59,8 @@ const router = createBrowserRouter([
      {
         path:'/members',
         element:<Members></Members>,
-        loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
+        // loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
+        loader:()=>fetch('http://localhost:5000/member')
    },
     {
         path: '/AddPost',
@@ -71,7 +73,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/AddMember',
-        element: <PrivateRoute><Addmembers></Addmembers></PrivateRoute>
+        element: <PrivateRoute><NewMenbers></NewMenbers></PrivateRoute>
     },
     {
         path: '*',
