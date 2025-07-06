@@ -8,8 +8,8 @@ import Footer from '../Footer';
 
 const Members = () => {
       const newmembers = useLoaderData()
-    const [members,setmembers]=useState(newmembers)
-  
+    const [member,setmember]=useState(newmembers)
+     console.log(member)
     
     const handeldelate = _id => {
           console.log(_id)
@@ -31,7 +31,7 @@ const Members = () => {
             }).then((result) => {
                 if (result.isConfirmed) {
     
-                    fetch(`http://localhost:5000/member/${_id}`,{
+                    fetch(`https://my-dragonnews-server.onrender.com/members${_id}`,{
                         method:'DELETE'
                     })
                         .then(res => res.json())
@@ -45,8 +45,8 @@ const Members = () => {
                                     text: "Your member has been deleted.",
                                     icon: "success"
                                 });
-                                const remaining = members.filter(cof=> cof._id !== _id);
-                                setmembers(remaining)
+                                const remaining = member.filter(member=> member._id !== _id);
+                                setmember(remaining)
                                
                                 }
                         })
@@ -68,7 +68,7 @@ const Members = () => {
               <Link to='/AddMember' className='btn btn-circle sticky z-30 ml-10 top-10 mt-10  bg-amber-400 text-3xl hover:text-white hover:bg-amber-600 '>+</Link>
             <div className='mt-20 mb-20  grid gap-10 w-11/12 mx-auto md:grid-cols-3 lg:grid-cols-4'>
           {
-            members.map(user=><Profilecard handeldelate={handeldelate} key={user._id} user={user}></Profilecard>)
+            member.map(user=><Profilecard handeldelate={handeldelate} key={user._id} user={user}></Profilecard>)
             
          }
         

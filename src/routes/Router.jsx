@@ -59,8 +59,8 @@ const router = createBrowserRouter([
      {
         path:'/members',
         element:<Members></Members>,
-        // loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
-        loader:()=>fetch('http://localhost:5000/member')
+        loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
+        
    },
     {
         path: '/AddPost',
