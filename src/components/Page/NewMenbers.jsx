@@ -30,7 +30,7 @@ const NewMenbers = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await fetch('https://my-dragonnews-server.onrender.com/members', {
+        await fetch('https://my-dragonnews-server.onrender.com/member', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),

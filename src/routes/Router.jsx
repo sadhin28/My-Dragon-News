@@ -59,7 +59,7 @@ const router = createBrowserRouter([
      {
         path:'/members',
         element:<Members></Members>,
-        loader:()=>fetch('https://my-dragonnews-server.onrender.com/members')
+        loader:()=>fetch('https://my-dragonnews-server.onrender.com/member')
         
    },
     {

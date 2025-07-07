@@ -31,7 +31,7 @@ const Members = () => {
             }).then((result) => {
                 if (result.isConfirmed) {
     
-                    fetch(`https://my-dragonnews-server.onrender.com/members${_id}`,{
+                    fetch(`https://my-dragonnews-server.onrender.com/member/${_id}`,{
                         method:'DELETE'
                     })
                         .then(res => res.json())
