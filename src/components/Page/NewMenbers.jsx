@@ -1,5 +1,5 @@
-import { div } from 'framer-motion/client';
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const NewMenbers = () => {
@@ -41,20 +41,14 @@ const NewMenbers = () => {
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
-                        navigate('/members')
+                      
         setFormData({ name: '', dob: '', designation: '', image: '' });
-        fetchMembers();
+      navigate('/members')
     };
 
-    const fetchMembers = async () => {
-        const res = await fetch('http://localhost:5000/member');
-        const data = await res.json();
-        setMembers(data);
-    };
+  
 
-    useEffect(() => {
-        fetchMembers();
-    }, []);
+ 
     return (
         <div className='min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8'>
             <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-10 relative" >
