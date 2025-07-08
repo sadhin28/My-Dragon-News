@@ -9,7 +9,8 @@ import Navbar from "../components/Navbar";
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
+        
            <header className=" bg-white">
         {/* sticky top-0 z-30 */}
              <Header></Header>

@@ -1,12 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, } from "react";
 import userLogo from '../assets/user.png'
+import DarkModeToggle from "../layouts/DarkModeToggle";
 const Navbar = () => {
     const { user, Logout } = useContext(AuthContext)
-   
+ 
     return (
         <div className="flex md:mb-0 mb-5 justify-between items-center text-xs md:text-xl">
+            <div>
+                <DarkModeToggle></DarkModeToggle>
+            </div>
             <div>
                 <p>{user && user.displayName}</p>
             </div>
