@@ -6,7 +6,7 @@ const Profilecard = ({user,handeldelate}) => {
             <img
               src={user.image}
               alt={user.name}
-              className="w-full h-40 object-cover rounded mb-2"
+              className="w-full  h-60 object-center rounded mb-2"
             />
             <h2 className="text-xl font-semibold">{user.name}</h2>
             <p>DOB: {user.dob}</p>

@@ -1,49 +1,46 @@
 
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const NewMenbers = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        dob: '',
-        designation: '',
-        image: '',
-    });
+
     const navigate = useNavigate()
-    const [members, setMembers] = useState([]);
 
-    const handleChange = (e) => {
-        const { name, value, files } = e.target;
+  const [imageBase64, setImageBase64] = useState('');
 
-        if (name === 'image') {
-            const file = files[0];
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setFormData(prev => ({ ...prev, image: reader.result }));
-            };
-            reader.readAsDataURL(file); // Convert image to base64
-        } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
-        }
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImageBase64(reader.result);
     };
+    reader.readAsDataURL(file);
+  };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        await fetch('https://my-dragonnews-server.onrender.com/member', {
+       const data = {
+      name: e.target.name.value,
+      dob: e.target.dob.value,
+      designation: e.target.designation.value,
+      image: imageBase64,
+    };
+    
+    const res =    await fetch('https://my-dragonnews-server.onrender.com/member', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
+            body:JSON.stringify(data),
         });
+         const result = await res.json();
+       
          Swal.fire({
                             title: 'Success',
                             text: "Add Members  Successfully",
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
-                      
-        setFormData({ name: '', dob: '', designation: '', image: '' });
-      navigate('/members')
+                      navigate('/members')
+        
     };
 
   
@@ -64,16 +61,15 @@ const NewMenbers = () => {
                             type="text"
                             name="name"
                             placeholder="Name"
-                            value={formData.name}
-                            onChange={handleChange}
+                           
                             className="w-full border p-2 rounded"
                             required
                         />
                         <input
                             type="date"
                             name="dob"
-                            value={formData.dob}
-                            onChange={handleChange}
+                             
+                         
                             className="w-full border p-2 rounded"
                             required
                         />
@@ -81,8 +77,6 @@ const NewMenbers = () => {
                             type="text"
                             name="designation"
                             placeholder="Designation"
-                            value={formData.designation}
-                            onChange={handleChange}
                             className="w-full border p-2 rounded"
                             required
                         />
