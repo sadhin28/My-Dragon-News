@@ -24,22 +24,24 @@ const NewMenbers = () => {
       dob: e.target.dob.value,
       designation: e.target.designation.value,
       image: imageBase64,
+      
     };
-    
-    const res =    await fetch('https://my-dragonnews-server.onrender.com/member', {
+    console.log(data)
+            fetch('https://my-dragonnews-server.onrender.com/member', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body:JSON.stringify(data),
         });
-         const result = await res.json();
-       
+        
+         
          Swal.fire({
                             title: 'Success',
                             text: "Add Members  Successfully",
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
-                      navigate('/members')
+                      
+                        navigate('/members')
         
     };
 
@@ -83,7 +85,6 @@ const NewMenbers = () => {
                         <input
                             type="file"
                             name="image"
-                            accept="image/*"
                             onChange={handleChange}
                             className="w-full border p-2 rounded"
                             required
