@@ -10,7 +10,7 @@ const Members = () => {
     const newmembers = useLoaderData()
     const [member, setmember] = useState(newmembers)
 
-
+    console.log(newmembers)
     const handeldelate = _id => {
 
         const swalWithBootstrapButtons = Swal.mixin({

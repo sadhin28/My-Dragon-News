@@ -5,18 +5,22 @@ import Swal from 'sweetalert2';
 const NewMenbers = () => {
 
     const navigate = useNavigate()
+ const [imageBase64, setImageBase64] = useState('');
 
-  const [imageBase64, setImageBase64] = useState('');
-
-  const handleChange = (e) => {
+ 
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    reader.onloadend = () => {
-      setImageBase64(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
 
+    reader.onloadend = () => {
+      setImageBase64(reader.result); // base64 string
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+ console.log(imageBase64)
     const handleSubmit = async (e) => {
         e.preventDefault();
        const data = {
@@ -27,22 +31,37 @@ const NewMenbers = () => {
       
     };
     console.log(data)
-            fetch('https://my-dragonnews-server.onrender.com/member', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:JSON.stringify(data),
-        });
-        
+   fetch('https://my-dragonnews-server.onrender.com/member', {
+               method: "POST",
+               headers: {
+                   'content-type': 'application/json'
+               },
+               body: JSON.stringify(data)
+           })
+               .then(res => res.json())
+               .then(data => {
+   
+                    console.log(data)
+                   Swal.fire({
+                       title: 'Success',
+                       text: "Add Members  Successfully",
+                       icon: 'success',
+                       confirmButtonText: 'Cool'
+                   })
+                   navigate('/members')
+   
+   
+               })
+               .catch(errors => {
+                   Swal.fire({
+                       title: 'Error',
+                       text: `${errors.message}`,
+                       icon: 'error',
+                       confirmButtonText: 'Cool'
+                   })
+               })
+   
          
-         Swal.fire({
-                            title: 'Success',
-                            text: "Add Members  Successfully",
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                      
-                        navigate('/members')
-        
     };
 
   
@@ -70,8 +89,6 @@ const NewMenbers = () => {
                         <input
                             type="date"
                             name="dob"
-                             
-                         
                             className="w-full border p-2 rounded"
                             required
                         />
@@ -85,7 +102,8 @@ const NewMenbers = () => {
                         <input
                             type="file"
                             name="image"
-                            onChange={handleChange}
+                            accept="image/*"
+                            onChange={handleImageChange}
                             className="w-full border p-2 rounded"
                             required
                         />
