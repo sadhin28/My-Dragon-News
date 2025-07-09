@@ -10,7 +10,7 @@ const NewsCard = ({posts,handelDelete}) => {
       try {
         await navigator.share({
           
-          url:`http://localhost:5174/category/${id}`,
+          url:`https://dragon-news-9c86c.web.app/news/${id}`,
         });
        
       } catch (error) {
