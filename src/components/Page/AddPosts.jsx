@@ -1,49 +1,89 @@
 
+import { th } from 'framer-motion/client';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const AddPosts = () => {
-    const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors }, } = useForm();
+        const navigate = useNavigate()
+     const [imageBase64, setImageBase64] = useState('');
+     const [thumbnailBase64, setthumbnailBase64] = useState('');
+    
+     
+      const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+    
+        reader.onloadend = () => {
+          setImageBase64(reader.result); // base64 string
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
+      const handelthumbnailChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+    
+        reader.onloadend = () => {
+          setthumbnailBase64(reader.result); // base64 string
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
 
-    const onSubmit = async (data) => {
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+           const data = {
+          name: e.target.name.value,
+          published_date: e.target.published_date.value,
+          title:e.target.title.value,
+          detail: e.target.detail.value,
+          image_url: imageBase64,
+          thumbnail_url: thumbnailBase64,
+          
+        };
+       console.log(data)
+       fetch('https://my-dragonnews-server.onrender.com/posts', {
+                   method: "POST",
+                   headers: {
+                       'content-type': 'application/json'
+                   },
+                   body: JSON.stringify(data)
+               })
+                   .then(res => res.json())
+                   .then(data => {
+       
+                        console.log(data)
+                       Swal.fire({
+                           title: 'Success',
+                           text: "Add Members  Successfully",
+                           icon: 'success',
+                           confirmButtonText: 'Cool'
+                       })
+                       navigate('/')
+       
+       
+                   })
+                   .catch(errors => {
+                       Swal.fire({
+                           title: 'Error',
+                           text: `${errors.message}`,
+                           icon: 'error',
+                           confirmButtonText: 'Cool'
+                       })
+                   })
+       
+             
+        };
+    
       
-        fetch('https://my-dragonnews-server.onrender.com/posts', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(data => {
-               
-
-                Swal.fire({
-                    title: 'Success',
-                    text: "Add Posts  Successfully",
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                })
-                navigate('/')
-
-
-            })
-            .catch(errors => {
-                Swal.fire({
-                    title: 'Error',
-                    text: `${errors.message}`,
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                })
-            })
-
-    };
-
-
-
+    
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
             <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-10 relative">
@@ -54,83 +94,66 @@ const AddPosts = () => {
                 <h2 className="text-3xl font-bold text-center text-[#374151] mb-2">পোস্ট করুন</h2>
 
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {[
-                            { name: 'name', label: 'Your Name', placeholder: 'Enter Your name' },
-                            { name: 'title', label: 'Post Title', placeholder: 'Enter Post Title' },
-                           
-                           
-
-
-                        ].map(({ name, label, placeholder }) => (
-                            <div key={name}>
-                                <label className="block mb-1 font-medium">{label}</label>
-                                <input
-                                    {...register(name, { required: `${label} is required` })}
-                                    placeholder={placeholder}
-                                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
-                                />
-                                {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}
-                            </div>
-                        ))}
-                    </div>
-                          <div>
-                                <label className="block mb-1 font-medium">Published date</label>
-                                <input
-                                   {...register('published_date', {
-                                required: 'Photo URL is required',
-
-                            })}
-                                    placeholder='Published date'
-                                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
-                                />
-                                {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}
-                        </div>
-                    <div>
-                        <label className="block mb-1 font-medium">Thumbnail url</label>
+                <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded shadow">
+                      <label >Your Name</label>
                         <input
-                            {...register('thumbnail_url', {
-                                required: 'Photo URL is required',
-
-                            })}
-                            placeholder="thumbnail_url"
-                            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                           
+                            className="w-full border p-2 rounded"
+                            required
                         />
-                        {errors.photo && <p className="text-red-500 text-sm mt-1">{errors.photo.message}</p>}
-                    </div>
-                    <div>
-                        <label className="block mb-1 font-medium">Image url</label>
+                        <label >Published Date</label>
                         <input
-                            {...register('image_url', {
-                                required: 'image_url',
-
-                            })}
-                            placeholder="Enter photo URL"
-                            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
+                            type="date"
+                            name="published_date"
+                            className="w-full border p-2 rounded"
+                            required
                         />
-                        {errors.photo && <p className="text-red-500 text-sm mt-1">{errors.photo.message}</p>}
-                    </div>
-                    <div>
+                         <label >Post Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            placeholder="Post title"
+                            className="w-full border p-2 rounded"
+                            required
+                        />
+                         <label >Select Your Image</label>
+                        <input
+                            type="file"
+                            name="image_url"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="w-full border p-2 rounded"
+                            required
+                        />
+                         <label > Select Thumbnail Image</label>
+                        <input
+                            type="file"
+                            name="thumbnail_url"
+                            accept="image/*"
+                            onChange={handelthumbnailChange}
+                            className="w-full border p-2 rounded"
+                            required
+                        />
+                           <div>
                         <textarea
+                           name='detail'
                             onSubmit={handleSubmit}
-                             {...register('details', {
-                                required: 'dataisl',
-
-                            })}
-                            placeholder="Details"
+                            placeholder="detail"
                             className="w-full mb-4 p-2 border rounded"
                             rows="4"
                         ></textarea>
                        
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-[#d6a86b] hover:bg-[#c99757] text-white font-semibold py-2 px-6 rounded transition-all duration-300"
-                    >
-                        Add Post
-                    </button>
-                </form>
+                        <button
+                            type="submit"
+                            className="w-full bg-[#d6a86b] hover:bg-[#c99757] text-white font-semibold py-2 px-6 rounded transition-all duration-300"
+                        >
+                            Add Member
+                        </button>
+                    </form>
 
                 <ToastContainer position="top-right" autoClose={3000} />
             </div>

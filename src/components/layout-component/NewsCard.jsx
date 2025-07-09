@@ -1,18 +1,16 @@
-
-import { AiFillStar } from 'react-icons/ai';
-import {  FaPen, FaPooStorm, FaShareAlt } from 'react-icons/fa';
-import { FaDisplay, FaSignsPost } from 'react-icons/fa6';
+import {  FaPen, FaShareAlt } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const NewsCard = ({posts,handelDelete}) => {
+     console.log(posts.length)
        const handleShare = async (id) => {
     if (navigator.share) {
       try {
         await navigator.share({
           
-          url:`http://localhost:5173/category/${id}`,
+          url:`http://localhost:5174/category/${id}`,
         });
        
       } catch (error) {
@@ -31,7 +29,7 @@ const NewsCard = ({posts,handelDelete}) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={(posts.image_url)}
+            src={posts.image_url}
             
             className="w-10 h-10 rounded-full object-cover"
           />
@@ -52,22 +50,21 @@ const NewsCard = ({posts,handelDelete}) => {
 
       {/* Thumbnail */}
       <img
-        src={posts.thumbnail_url
-}
+        src={posts.thumbnail_url}
         alt="News"
-        className="w-full h-68 object-cover rounded"
+        className="w-full h-88 object-cover rounded"
       />
 
       {/* Details */}
       <p className="text-sm text-gray-700">
-        {posts.details.length > 200 ? posts.details.slice(0, 200) + "..." : posts.details}
+        {posts.detail.length > 200 ? posts.detail.slice(0, 200) + "..." : posts.detail}
         <Link to={`/news/${posts._id}`} className="text-red-500 font-semibold cursor-pointer ml-1">Read More</Link>
       </p>
 
       {/* Footer: Rating and Views */}
       <div className="flex items-center justify-between pt-2 border-t">
         <div className="flex items-center gap-1 text-orange-400 text-sm">
-          <FaPen />{`Published date : ${posts.published_date}`}
+          <FaPen />{`Pubilshed Date :  ${posts.published_date}`}
           {/* <span>{singleNews.rating.number}</span> */}
         </div>
          <div onClick={() => handelDelete(posts._id)} className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>

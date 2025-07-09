@@ -19,7 +19,7 @@ const DetailsNews = () => {
                     <div className='shadow-2xl p-5 rounded-2xl flex flex-col '>
                         <img className='rounded-2xl' src={details.thumbnail_url} alt="" />
                         <h1 className='text-xl font-bold mt-5 mb-5'>{details.title}</h1>
-                        <p className='mb-5'>{details.details}</p>
+                        <p className='mb-5'>{details.detail}</p>
                         <div>
 
                             <Link className='p-1 flex items-center gap-2 text-white bg-[#D72050] w-60 justify-center ' to={`/category/${details?._id}`}><FaArrowLeft />All news in this category</Link>
