@@ -1,7 +1,7 @@
 on:
   schedule:
-    - cron: '*/5 * * * *'  # every 5 minutes
-  workflow_dispatch:       # optional: lets you run it manually too
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:       # Optional: allows manual trigger
 
 jobs:
   ping:
@@ -17,3 +17,4 @@ jobs:
         if: steps.choice.outputs.chance == '0'
         run: |
           curl -sf https://my-dragonnews-server.onrender.com/ping && echo "✅ pong"
+       
